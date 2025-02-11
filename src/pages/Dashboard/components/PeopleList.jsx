@@ -1,12 +1,13 @@
 import PeopleListItem from './PeopleListItem'
+import { Link } from 'react-router-dom'
 
 function PeopleList(props) {
-  const { people } = props
+  const { people, edit } = props
 
   return (
     <ul>
       {people.map((person, index) => (
-        <PeopleListItem key={index} person={person} />
+        <Link key={index} to={"/view/"+person.id/*.value*/}><PeopleListItem person={person} edit={edit}/></Link>
       ))}
     </ul>
   )
